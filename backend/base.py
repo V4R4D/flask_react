@@ -36,6 +36,7 @@ def my_profile():
             return jsonify({"error" : "Incorrect Password try again!"})
     else : 
         flash("Email does not exist ,  Register first !" , category = "error")
+        return jsonify({"error" : "Email does not exist ,  Register first !"})
         
     
     

@@ -18,6 +18,7 @@ function User({email}) {
     const handleSubmit = useCallback((e) => {
         e.preventDefault();
         triggerAPI();
+        alert("Details recorded !!");
     },[triggerAPI])
 
     const handleChangetype = useCallback((e) => {
@@ -27,6 +28,7 @@ function User({email}) {
     const handleChangesalary = useCallback((e) => {
         setsalary(e.target.value)
     },[])
+
 
     
 

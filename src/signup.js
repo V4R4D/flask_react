@@ -1,9 +1,10 @@
 import React, { Component , useCallback } from 'react';
 import { useEffect , useState } from 'react'
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import './App.css'
 import Login from './login' ; 
+import { useNavigate } from "react-router-dom";
 
 console.log("am i reaching here ? ") 
 
@@ -14,6 +15,8 @@ function Signup({email,setemail}) {
     const [lname,setlname] = useState('');
     const [pass1,setpass1] = useState('');
     const [pass2,setpass2] = useState('');
+
+    const navigate = useNavigate();
 
     const triggerAPI = useCallback(async () => {
         const res = await axios.post('/signup' , {email:email , password:pass1 , fname : fname , lname : lname , password2:pass2});
@@ -26,6 +29,7 @@ function Signup({email,setemail}) {
         }
         else if (res.data["error"] == " Account Successfully Created"){
             alert("Account successfully created");
+            navigate('/userpage')
         }
 
     },[email,pass1,fname,lname,pass2]);

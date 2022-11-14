@@ -19,6 +19,10 @@ function Login({email , setemail}) {
             alert("Incorrect Password try again!");
             navigate('./'); 
         }
+        else if(res.data["error"] == "Email does not exist ,  Register first !"){
+            alert("Email does not exist ,  Register first !");
+            navigate('./signup');
+        }
         else{
             navigate('./userpage')
         }
