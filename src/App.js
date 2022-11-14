@@ -1,24 +1,41 @@
-import logo from './logo.svg';
+
+import React, { Component } from 'react';
+import { useState } from 'react'
+import axios from "axios";
 import './App.css';
+import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Signup from './signup';
+import Reset from './reset';
+import Login from './login';
+import User from './userpage';
+
+
+
+
 
 function App() {
+
+  const [email, setemail] = useState('')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          {/* <Route path="/">
+            <Login
+              email={email}
+              setemail={setemail}
+            />
+          </Route> */}
+          <Route exact path="/" element={< Login email={email} setemail={setemail}/>}></Route>
+          <Route exact path="/signup" element={< Signup email={email} setemail={setemail}/>}></Route>
+          <Route exact path="/reset" element={< Reset />}></Route>
+          <Route exact path="/userpage" element={< User email={email}/>}></Route>
+        </Routes>
+      </Router>
+
+    </>
   );
 }
 
