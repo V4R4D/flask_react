@@ -1,17 +1,12 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import { useState } from 'react'
-import axios from "axios";
 import './App.css';
-import logo from './logo.svg';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Signup from './signup';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Signup from './components/signup';
 import Reset from './reset';
-import Login from './login';
-import User from './userpage';
-
-
-
+import Login from './components/login';
+import User from './components/userpage';
 
 
 function App() {
@@ -22,12 +17,6 @@ function App() {
     <>
       <Router>
         <Routes>
-          {/* <Route path="/">
-            <Login
-              email={email}
-              setemail={setemail}
-            />
-          </Route> */}
           <Route exact path="/" element={< Login email={email} setemail={setemail}/>}></Route>
           <Route exact path="/signup" element={< Signup email={email} setemail={setemail}/>}></Route>
           <Route exact path="/reset" element={< Reset />}></Route>

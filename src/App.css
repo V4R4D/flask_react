@@ -120,11 +120,31 @@ body {
   margin-bottom: -0.2em;
 }
 
+.invalid input{
+  border-color:red;
+}
+.invalid::after{
+  content:"!";
+  font-weight:bolder;
+  color:red;
+}
+
+.screen-1.email{display:flex; flex-direction:row;}
+
 
 .screen-1 .password .show-hide {
   margin-right: -5em;
 }
 .screen-1 .login {
+  padding: 1em;
+  background: #3e4684;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+.login {
   padding: 1em;
   background: #3e4684;
   color: white;
